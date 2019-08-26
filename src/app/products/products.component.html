@@ -1,0 +1,11 @@
+<body>
+  <section>
+    <div *ngFor="let item of cart">
+      <p>Product: {{ item.product }}</p>
+      <p>Price: ${{ item.price }}</p>
+      <p>ID: {{ item.id }}</p>
+      <p>Quantity: {{ item.quantity }}</p>
+      <button>Add to cart</button>
+    </div>
+  </section>
+</body>

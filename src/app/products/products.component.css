@@ -1,0 +1,33 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* width: auto; */
+  height: 100vh;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: 2px solid white;
+  border-radius: 5px;
+  width: 95%;
+  height: 80%;
+  background-color: rgba(255, 255, 255, 0.567);
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  color: #293241;
+  padding: 10px;
+}
+
+button {
+  background-color: #293241;
+  border-radius: 5px;
+  color: white;
+  margin-top: 10px;
+}
