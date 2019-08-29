@@ -1,11 +1,42 @@
 <body>
   <section>
-    <div *ngFor="let item of cart">
-      <p>Product: {{ item.product }}</p>
-      <p>Price: ${{ item.price }}</p>
-      <p>ID: {{ item.id }}</p>
-      <p>Quantity: {{ item.quantity }}</p>
-      <button>Add to cart</button>
+    <div>
+      <h1>Cart</h1>
+      <form #itemForm="ngForm" (ngSubmit)="addItems(itemForm)">
+        <!-- <input type="text" name="id" ngModel placeholder="Id" /> -->
+        <input type="text" name="product" ngModel placeholder="Product" />
+        <input type="number" name="price" ngModel placeholder="Price" />
+        <input type="number" name="quantity" ngModel placeholder="Quanity" />
+        <button>Add Item</button>
+      </form>
+      <button (click)="[toggleForm(), setItemsToEdit(item)]">
+        Update Cart
+      </button>
+    </div>
+    <div class="productArea" *ngFor="let item of cart">
+      <div class="productInfo">
+        <p>Product: {{ item.product }}</p>
+        <p>ID: {{ item.id }}</p>
+        <p>Price: ${{ item.price }}</p>
+        <p>Quantity: {{ item.quantity }}</p>
+        <button (click)="deleteItem(item.id)">X</button>
+      </div>
+      <div class="updateInfo">
+        <form
+          *ngIf="show"
+          #updateForm="ngForm"
+          (ngSubmit)="updateItems(updateForm, item.id)"
+        >
+          <label for="quantity">Quantity: </label>
+          <input
+            type="number"
+            name="quantity"
+            id="quantity"
+            [ngModel]="item.quantity"
+          />
+          <button>Update Quanity</button>
+        </form>
+      </div>
     </div>
   </section>
 </body>

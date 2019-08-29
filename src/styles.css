@@ -7,4 +7,5 @@ html {
   background-image: url("/assets/couple-hiking.jpg");
   height: 100vh;
   background-size: cover;
+  background-attachment: fixed;
 }
